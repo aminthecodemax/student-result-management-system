@@ -1,0 +1,27 @@
+STUDENT RESULT MANAGEMENT SYSTEM
+--------------------------------
+1. Add student record
+2. Display all student records
+3. Search by roll number
+4. Display all final results
+5. Show subjects and grading rules
+6. Load sample records
+0. Exit
+Choose an option: 6
+Three sample records saved. One sample demonstrates a subject-level failure.
+
+Choose an option: 4
+Student: Aarav Sharma | Roll: STU101 | Course: BSc Computer Science
+SUBJECT                MARKS
+English                92 / 100
+Mathematics            88 / 100
+Physics                85 / 100
+Chemistry              90 / 100
+Computer Science       95 / 100
+Total: 450 / 500 | Percentage: 90.00% | Grade: A+ | Status: PASS
+--------------------------------------------------------------
+Student: Mira Patel | Roll: STU102 | Course: BSc Computer Science
+Total: 393 / 500 | Percentage: 78.60% | Grade: B | Status: PASS
+--------------------------------------------------------------
+Student: Kabir Das | Roll: STU103 | Course: BSc Computer Science
+Total: 302 / 500 | Percentage: 60.40% | Grade: C | Status: FAIL

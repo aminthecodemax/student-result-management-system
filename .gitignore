@@ -1,0 +1,9 @@
+/out/
+/data/students.csv
+*.class
+.idea/
+.vscode/
+*.iml
+/docs/report_render/
+/docs/Student_Result_Project_Report.docx
+/docs/build_report.py

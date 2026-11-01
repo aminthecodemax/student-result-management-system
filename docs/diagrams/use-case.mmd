@@ -1,0 +1,17 @@
+flowchart LR
+    Admin[Operator / Faculty]
+    UC1((Add student record))
+    UC2((Display all records))
+    UC3((Search by roll number))
+    UC4((Enter subject marks))
+    UC5((Calculate result))
+    UC6((Display final result))
+    UC7((Load sample records))
+    Admin --> UC1
+    Admin --> UC2
+    Admin --> UC3
+    Admin --> UC6
+    Admin --> UC7
+    UC1 -. includes .-> UC4
+    UC3 -. includes .-> UC5
+    UC6 -. includes .-> UC5

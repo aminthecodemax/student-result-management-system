@@ -1,0 +1,25 @@
+flowchart TD
+    A([Start]) --> B[Show menu]
+    B --> C{Select option}
+    C -->|Add| D[Read student details]
+    D --> E{Required fields valid?}
+    E -->|No| D
+    E -->|Yes| F[Read marks for each subject]
+    F --> G{Each mark is integer 0 to 100?}
+    G -->|No| F
+    G -->|Yes| H{Roll number unique?}
+    H -->|No| I[Show duplicate message]
+    H -->|Yes| J[Save student in CSV]
+    C -->|Display| K[Read records and print students]
+    C -->|Search| L[Find exact roll number, ignoring case]
+    L --> M{Found?}
+    M -->|Yes| N[Calculate and display result]
+    M -->|No| O[Show not found message]
+    C -->|All results| P[Calculate and display each result]
+    C -->|Exit| Q([End])
+    I --> B
+    J --> B
+    K --> B
+    N --> B
+    O --> B
+    P --> B

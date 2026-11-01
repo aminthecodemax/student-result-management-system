@@ -1,0 +1,63 @@
+classDiagram
+    class Main {
+      -Scanner scanner
+      -StudentResultService service
+      +main(String[] args)
+      -run()
+      -addStudent()
+      -searchStudent()
+      -displayAllResults()
+    }
+    class Student {
+      -String rollNumber
+      -String name
+      -String course
+      -List~SubjectMark~ subjectMarks
+      +Student(...)
+      +getRollNumber() String
+      +getSubjectMarks() List~SubjectMark~
+    }
+    class SubjectMark {
+      -String subjectName
+      -int marks
+      +SubjectMark(String, int)
+      +getSubjectName() String
+      +getMarks() int
+    }
+    class StudentResult {
+      -int totalMarks
+      -int maximumMarks
+      -double percentage
+      -String grade
+      -boolean passed
+    }
+    class ResultCalculator {
+      +calculate(Student) StudentResult
+      -gradeFor(double) String
+    }
+    class StudentResultService {
+      -StudentRepository repository
+      -ResultCalculator calculator
+      +addStudent(Student)
+      +getAllStudents() List~Student~
+      +findStudent(String) Optional~Student~
+      +calculateResult(Student) StudentResult
+    }
+    class StudentRepository {
+      <<interface>>
+      +findAll() List~Student~
+      +findByRollNumber(String) Optional~Student~
+      +save(Student)
+    }
+    class CsvStudentRepository {
+      -Path csvPath
+      +findAll() List~Student~
+      +findByRollNumber(String) Optional~Student~
+      +save(Student)
+    }
+    Main --> StudentResultService
+    StudentResultService --> StudentRepository
+    StudentResultService --> ResultCalculator
+    CsvStudentRepository ..|> StudentRepository
+    Student "1" *-- "1..*" SubjectMark
+    ResultCalculator ..> StudentResult

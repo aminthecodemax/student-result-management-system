@@ -1,0 +1,17 @@
+sequenceDiagram
+    actor Operator
+    participant UI as Main
+    participant Service as StudentResultService
+    participant Repo as CsvStudentRepository
+    participant Calc as ResultCalculator
+    Operator->>UI: Choose Search and enter roll number
+    UI->>Service: findStudent(rollNumber)
+    Service->>Repo: findByRollNumber(rollNumber)
+    Repo->>Repo: Read and parse students.csv
+    Repo-->>Service: Optional<Student>
+    Service-->>UI: Matching student
+    UI->>Service: calculateResult(student)
+    Service->>Calc: calculate(student)
+    Calc-->>Service: total, percentage, grade, pass/fail
+    Service-->>UI: StudentResult
+    UI-->>Operator: Print marks and final result

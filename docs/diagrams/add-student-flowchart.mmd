@@ -1,0 +1,18 @@
+flowchart TD
+    Start([Start]) --> Details[/Enter roll number, name, course/]
+    Details --> Required{Fields non-empty?}
+    Required -->|No| Error1[Show validation error and re-enter]
+    Error1 --> Details
+    Required -->|Yes| Duplicate{Roll number already exists?}
+    Duplicate -->|Yes| Error2[Show duplicate error]
+    Error2 --> Stop([Return to menu])
+    Duplicate -->|No| Subject[Prompt for next subject mark]
+    Subject --> Number{Whole number from 0 to 100?}
+    Number -->|No| Error3[Show range error and retry this subject]
+    Error3 --> Subject
+    Number -->|Yes| More{More subjects?}
+    More -->|Yes| Subject
+    More -->|No| Save[Create Student and SubjectMark objects]
+    Save --> Write[Save all records to CSV]
+    Write --> Success[Show success message]
+    Success --> Stop
